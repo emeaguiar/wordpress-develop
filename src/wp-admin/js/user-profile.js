@@ -328,7 +328,9 @@
 
 	$(document).ready( function() {
 		var $colorpicker, $stylesheet, user_id, current_user_id,
-			select = $( '#display_name' );
+			select = $( '#display_name' ),
+			current_name = select.val(),
+			greeting = $( '#wp-admin-bar-my-account' ).children( 'a' ).first();
 
 		$('#pass1').val('').on( inputEvent + ' pwupdate', check_pass_strength );
 		$('#pass-strength-result').show();
@@ -370,6 +372,19 @@
 					}
 				});
 			});
+
+			/**
+			 * Replaces "Howdy, *" in the admin toolbar whenever the display name dropdown is updated.
+			 */
+			select.on( 'change', function() {
+				var display_name = $.trim( this.value ) || current_name,
+					greeting_text = greeting.html();
+
+				greeting.html( greeting_text.replace( current_name, display_name ) );
+
+				// Update var in case we haven't saved yet
+				current_name = display_name;
+			} );
 		}
 
 		$colorpicker = $( '#color-picker' );

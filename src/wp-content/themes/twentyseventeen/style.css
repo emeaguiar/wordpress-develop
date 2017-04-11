@@ -1653,6 +1653,65 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	width: 100%;
 }
 
+/**
+Use media queries to prevent extremely tall header in iOS lte 7
+Used formula to get height: Device screen height - ( Device screen height * 25% ) = 75vh
+*/
+/* iPad */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	.has-header-image.twentyseventeen-front-page .custom-header,
+	.has-header-video.twentyseventeen-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header {
+		height: 576px;
+	}
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	.has-header-image.twentyseventeen-front-page .custom-header,
+	.has-header-video.twentyseventeen-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header {
+		height: 1024px;
+	}
+}
+
+/* iPhone 5 */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2) {
+	.has-header-image.twentyseventeen-front-page .custom-header,
+	.has-header-video.twentyseventeen-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header  {
+		height: 240px;
+	}
+}
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2) {
+	.has-header-image.twentyseventeen-front-page .custom-header,
+	.has-header-video.twentyseventeen-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header  {
+		height: 426px;
+	}
+}
+
+/* iPhone 4 */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+	.has-header-image.twentyseventeen-front-page .custom-header,
+	.has-header-video.twentyseventeen-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header {
+		height: 240px;
+	}
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+	.has-header-image.twentyseventeen-front-page .custom-header,
+	.has-header-video.twentyseventeen-front-page .custom-header,
+	.has-header-image.home.blog .custom-header,
+	.has-header-video.home.blog .custom-header {
+		height: 360px;
+	}
+}
+
 .custom-header-media {
 	bottom: 0;
 	left: 0;

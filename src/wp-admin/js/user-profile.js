@@ -378,13 +378,9 @@
 			 */
 			select.on( 'change', function() {
                 if ( user_id === current_user_id ) {
-				    var display_name = $.trim( this.value ) || current_name,
-				    	greeting_text = greeting.text();
+				    var display_name = $.trim( this.value ) || current_name;
 
-				    greeting.text( greeting_text.replace( current_name, display_name ) );
-
-				    // Save the new display name as current display name so that it can be used for the next change.
-				    current_name = display_name;
+				    greeting.text( display_name );
                 }
 			} );
 		}
